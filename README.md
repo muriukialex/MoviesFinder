@@ -1,38 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Movies Finder App 🎬
 
-## Getting Started
+This is a movie search web application that allows users to search for movies and view details about each movie. 
+The app fetches data from some of the publicly available [Rapid API](https://rapidapi.com/) movie APIs. Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+-   Search: Enter a movie title in the search input field and click the search button to fetch movie data from the specific API.
+-   Movie Details: View additional information about a movie, such as plot summary, cast, genre, etc., by clicking the "View Details" button.
+-   Bookmarks: Bookmark your favorite movies to view later.
+-   Recently Viewed Movies: Users can also come back to recently viewed movies.
+-   Responsive Design: The web app is designed to look and function well on different screen sizes.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Figma Designs
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To view this application's figma designs, see [here](https://www.figma.com/file/aqhVPaVGDh8nlsyX62zcNj/movies-finder?type=design&node-id=0%3A1&mode=design&t=uKYtvAsH9sdhwwRD-1)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Bonus Features
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+In addition to the main features, the following bonus features have been implemented:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+-   Pagination: Display multiple pages of search results, allowing users to navigate through the movie list.
+-   Sorting: Sort search results by different criteria, such as rating or release date.
+-   For Movie Ratings - Movies Ratings presented rely on the OMDb platform.
 
-## Learn More
+## How to Run Locally
 
-To learn more about Next.js, take a look at the following resources:
+To run the application locally, follow these steps:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository
+  ```shell
+    git clone https://github.com/muriukialex/MoviesFinder.git
+  ```
+2. Install dependencies
+  ```shell
+    npm install
+  ```
+3. Obtain a X-RapidAPI-Key API key from the X-RapidAPI-Key website: [https://rapidapi.com/](https://rapidapi.com/)
+5. Create a `.env.local` file in the root directory and add your API key: `NEXT_PUBLIC_X-RapidAPI-Key=<your-X-RapidAPI-Key>`
+6. Start the development server: `npm run dev`
+7. Open your web browser and visit: `http://localhost:3000`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Screenshots
 
-## Deploy on Vercel
+Here are some screenshots of the final web app:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+_Enter a movie title and click the search button to fetch results._
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+_Filter movies by movie genre._
+
+## Demo
+
+You can also see a live demo of the web app [here](https://example.com/).
+
+## Technologies Used
+
+The following technologies were used to build this web app:
+
+-   HTML5 & CSS3
+-   JavaScript
+-   [TypeScript](https://www.typescriptlang.org/docs/)
+-   [React.js](https://react.dev/)
+-   [NextJS](https://nextjs.org/)
+-   [Auth.JS](https://authjs.dev/)
+-   [Rapid API](https://rapidapi.com/)
+-   Figma [Designs](https://www.figma.com/file/aqhVPaVGDh8nlsyX62zcNj/movies-finder?type=design&node-id=0%3A1&mode=design&t=uKYtvAsH9sdhwwRD-1)
+
+## Author
+
+-   [Alex Muriuki](https://github.com/muriukialex)
+
+## License
+
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
