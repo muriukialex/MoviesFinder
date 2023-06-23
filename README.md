@@ -1,7 +1,7 @@
 # Movies Finder App 🎬
 
 This is a movie search web application that allows users to search for movies and view details about each movie. 
-The app fetches data from some of the publicly available [Rapid API](https://rapidapi.com/) movie APIs. Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
+The app fetches data from the publicly available [TMDB API]([https://rapidapi.com/](https://developer.themoviedb.org/)). Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
 
 ## Features
 
@@ -21,7 +21,7 @@ In addition to the main features, the following bonus features have been impleme
 
 -   Pagination: Display multiple pages of search results, allowing users to navigate through the movie list.
 -   Sorting: Sort search results by different criteria, such as rating or release date.
--   For Movie Ratings - Movies Ratings presented rely on the OMDb platform.
+-   For Movie Ratings - Movies Ratings presented rely on the IMDb platform.
 
 ## How to Run Locally
 
@@ -63,7 +63,7 @@ The following technologies were used to build this web app:
 -   [React.js](https://react.dev/)
 -   [NextJS](https://nextjs.org/)
 -   [Auth.JS](https://authjs.dev/)
--   [Rapid API](https://rapidapi.com/)
+-   [TMDb API](https://developer.themoviedb.org/)
 -   Figma [Designs](https://www.figma.com/file/aqhVPaVGDh8nlsyX62zcNj/movies-finder?type=design&node-id=0%3A1&mode=design&t=uKYtvAsH9sdhwwRD-1)
 
 ## Author
