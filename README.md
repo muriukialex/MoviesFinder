@@ -1,7 +1,7 @@
 # Movies Finder App 🎬
 
 This is a movie search web application that allows users to search for movies and view details about each movie. 
-The app fetches data from the publicly available [TMDB API]([https://rapidapi.com/](https://developer.themoviedb.org/)). Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
+The app fetches data from the publicly available [TMDB API](https://developer.themoviedb.org/). Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
 
 ## Features
 
