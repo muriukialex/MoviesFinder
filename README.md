@@ -36,7 +36,7 @@ To run the application locally, follow these steps:
     npm install
   ```
 3. Obtain an API Key from the The Movie Database (TMDB) website: [The Movie Database (TMDB) API](https://developer.themoviedb.org/reference/intro/getting-started)
-5. Create a `.env.local` file in the root directory and add your API key: `NEXT_PUBLIC_API Key=<your API Key>`
+5. Create a `.env.local` file in the root directory and add your API key: `NEXT_PUBLIC_API_Key=<your API Key>`
 6. Start the development server: `npm run dev`
 7. Open your web browser and visit: `http://localhost:3000`
 
