@@ -1,10 +1,11 @@
 // global color variables
 $color-blue: #3B57F7
 $color-black: #000000
-$color-dark-grey: #0E141B
 $color-white: #FFFFFF
+$color-dark-grey: #0E141B
+$color-grey: #848484
 
-// default size variables
+// global size variables
 $max-width: 1100px
 $border-radius: 4px
 
@@ -16,6 +17,14 @@ $border-radius: 4px
 
 =under-390px()
 	@media screen and (max-width: 390px)
+		@content
+
+=over-768px()
+	@media screen and (min-width: 768px)
+		@content
+
+=under-768px()
+	@media screen and (max-width: 768px)
 		@content
 
 =over-1000px()
