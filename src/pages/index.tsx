@@ -1,10 +1,15 @@
 import Head from 'next/head'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import styles from '@/styles/Home.module.sass'
-import Protected from '@/components/Protected'
+import HomePage from '@/website/HomePage'
+
+// types
+import type { GetServerSidePropsContext } from 'next'
 
 const Home = () => {
 	return (
-		<Protected>
+		<>
 			<Head>
 				<title>Movies Finder 🎬</title>
 				<meta name='description' content='Find your favorite movies using the Movies Finder application' />
@@ -12,11 +17,25 @@ const Home = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<main className={styles.HomePageContainer}>
-				<h1>This is the home page</h1>
-				<div className={styles.description}>This are the main page desription statements</div>
+				<HomePage />
 			</main>
-		</Protected>
+		</>
 	)
+}
+
+// Export the `session` prop to use sessions with Server Side Rendering
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+	const session = await getServerSession(context.req, context.res, authOptions)
+	console.log('user details: ', session)
+	if (!session) {
+		return { redirect: { destination: '/api/auth/signin' } }
+	}
+
+	return {
+		props: {
+			session: session,
+		},
+	}
 }
 
 export default Home

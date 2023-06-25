@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { signIn } from 'next-auth/react'
 import Header from '@/components/Header'
 import styles from './styles.module.sass'
 import LineDivider from '@/components/LineDivider/LineDivider'
@@ -9,6 +10,12 @@ const SignInPage = () => {
 	const handleSignUp = () => {
 		alert('Sign ups coming soon!')
 	}
+	const handleGoogleLogIn = () => {
+		return signIn('google')
+	}
+	const handleGithubLogin = () => {
+		return signIn('github')
+	}
 	return (
 		<section className={styles.SignInContainer}>
 			<div className={styles.SignInContainer__main}>
@@ -16,7 +23,9 @@ const SignInPage = () => {
 					<Header />
 					<div className={styles.SignInContainer__main__details__content}>
 						<h1>Log In</h1>
-						<div className={styles.SignInContainer__main__details__content__providerContainer}>
+						<div
+							className={styles.SignInContainer__main__details__content__providerContainer}
+							onClick={handleGoogleLogIn}>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GoogleImageIcon} width={32} height={32} alt='Google' />
 							</span>
@@ -24,7 +33,9 @@ const SignInPage = () => {
 								Log In With Google
 							</span>
 						</div>
-						<div className={styles.SignInContainer__main__details__content__providerContainer}>
+						<div
+							className={styles.SignInContainer__main__details__content__providerContainer}
+							onClick={handleGithubLogin}>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GithubImageIcon} width={32} height={32} alt='Github' />
 							</span>

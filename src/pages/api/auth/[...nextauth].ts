@@ -12,7 +12,7 @@ export const authOptions: NextAuthOptions = {
 		}),
 		GoogleProvider({
 			clientId: process.env.GOOGLE_ID,
-			clientSecret: process.env.GITHUB_SECRET,
+			clientSecret: process.env.GOOGLE_SECRET,
 		}),
 	],
 	pages: {

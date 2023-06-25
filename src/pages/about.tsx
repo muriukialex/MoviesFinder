@@ -1,10 +1,14 @@
 import Head from 'next/head'
+import { getServerSession } from 'next-auth/next'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import AboutPage from '@/website/AboutPage'
-import Protected from '@/components/Protected'
+
+// types
+import type { GetServerSidePropsContext } from 'next'
 
 const About = () => {
 	return (
-		<Protected>
+		<>
 			<Head>
 				<title>About | Movies Finder 🎬</title>
 				<meta
@@ -15,8 +19,23 @@ const About = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<AboutPage />
-		</Protected>
+		</>
 	)
+}
+
+// Export the `session` prop to use sessions with Server Side Rendering
+export async function getServerSideProps(context: GetServerSidePropsContext) {
+	const session = await getServerSession(context.req, context.res, authOptions)
+	// If the user is already logged in, redirect.
+	if (!session) {
+		return { redirect: { destination: '/' } }
+	}
+
+	return {
+		props: {
+			session,
+		},
+	}
 }
 
 export default About
