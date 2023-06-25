@@ -1,0 +1,40 @@
+@import 'const.sass'
+
+.SignInContainer
+
+    &__main
+        display: flex
+        justify-content: space-between
+
+        &__details
+            +over-1000px()
+                display: flex
+
+            +under-390px()
+                flex-direction: column
+
+            &__content
+                +over-1000px()
+                    margin: auto
+                    padding: 0rem
+            
+                padding: 4rem
+
+                &__providerContainer
+                    padding: 1rem
+                    width: 100%
+                    height: 100%
+                    background-color: red
+                    margin-top: 2rem
+
+
+        &__image
+            background: url('../../../public/assets/audience-auditorium.jpeg')
+            background-position: center
+            background-repeat: no-repeat
+            background-size: cover
+            width: 30%
+            height: 100vh
+
+            +under-390px()
+                display: none

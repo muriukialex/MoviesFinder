@@ -1,0 +1,28 @@
+// global color variables
+$color-blue: #3B57F7
+$color-black: #000000
+$color-dark-grey: #0E141B
+$color-white: #FFFFFF
+
+// default size variables
+$max-width: 1100px
+$border-radius: 4px
+
+
+// global size query properties
+=over-390px()
+	@media screen and (min-width: 390px)
+		@content
+
+=under-390px()
+	@media screen and (max-width: 390px)
+		@content
+
+=over-1000px()
+	@media screen and (min-width: 1000px)
+		@content
+
+=over-1280px()
+	@media screen and (min-width: 1280px)
+		@content
+
