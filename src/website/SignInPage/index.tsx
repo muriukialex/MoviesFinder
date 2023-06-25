@@ -17,7 +17,7 @@ const SignInPage = () => {
 					<div className={styles.SignInContainer__main__details__content}>
 						<h1>Log In</h1>
 						<div className={styles.SignInContainer__main__details__content__providerContainer}>
-							<span>
+							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GoogleImageIcon} width={32} height={32} alt='Google' />
 							</span>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__text}>
@@ -25,7 +25,7 @@ const SignInPage = () => {
 							</span>
 						</div>
 						<div className={styles.SignInContainer__main__details__content__providerContainer}>
-							<span>
+							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GithubImageIcon} width={32} height={32} alt='Github' />
 							</span>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__text}>

@@ -33,6 +33,9 @@
                     
                     &__text
                         margin-left: 3rem
+                    
+                    &__logo
+                        display: flex
 
                 &__divider
                     margin-top: 1rem
@@ -46,9 +49,11 @@
                         flex-direction: column
 
                     &__action
-                        margin-left: 0.25rem
                         text-decoration: underline
                         cursor: pointer
+                        
+                        +over-390px()
+                            margin-left: 0.25rem
 
         &__image
             background: url('../../../public/assets/audience-auditorium.jpeg')
@@ -58,6 +63,6 @@
             width: 30%
             height: 100vh
 
-            +under-390px()
+            +under-768px()
                 display: none
 
