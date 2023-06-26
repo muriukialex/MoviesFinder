@@ -6,7 +6,7 @@ const Header = () => {
 		<nav className={styles.header}>
 			<div className={styles.header__title}>
 				<span className={styles.header__title__logo}>
-					<BiMoviePlay size={32} />
+					<BiMoviePlay size={24} />
 				</span>
 				<span className={styles.header__title__text}>Movies Finder</span>
 			</div>

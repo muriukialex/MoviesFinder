@@ -1,0 +1,78 @@
+@import 'const.sass'
+
+.MenuSection
+    
+    &__home
+
+        &__title
+            color: $color-grey
+            margin-left: 2rem
+            margin-top: 2rem
+        
+        &__subSection
+            margin-bottom: 1rem
+
+            &__item
+                display: flex
+                align-items: center
+                padding: 1rem 2rem
+
+                &:hover
+                    background-color: $color-grey-black
+                    transition: 0.5s
+
+                &__icon
+                    margin-right: 1rem
+    
+    &__library
+
+        &__title
+            color: $color-grey
+            margin: 2rem 0rem 1rem 2rem
+        
+        &__subSection
+
+            &__item
+                display: flex
+                align-items: center
+                margin-bottom: 1rem
+                padding: 1rem 2rem
+
+                &:hover
+                    background-color: $color-grey-black
+                    transition: 0.5s
+
+                &__icon
+                    margin-right: 1rem
+                    display: flex
+    
+    &__about
+        padding: 1rem 2rem
+        display: flex
+        align-items: center
+
+        &:hover
+            background-color: $color-grey-black
+            transition: 0.5s
+
+        &__icon
+            margin-right: 1rem
+            display: flex
+
+    &__LogoutContainer
+        height: 1rem
+        padding: 2rem
+        margin-top: 12rem
+        display: flex
+        align-items: center
+
+        &__text
+            color: $color-light-grey
+
+            &:hover
+                color: $color-white
+                cursor: pointer
+        
+        &__icon
+            display: flex
+            margin-right: 1rem

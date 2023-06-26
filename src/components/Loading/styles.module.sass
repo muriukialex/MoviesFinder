@@ -1,0 +1,23 @@
+@import "const.sass"
+
+.LoadingScreenContainer
+    position: relative
+    animation-name: color-change
+    animation-duration: 2.1s
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+    background: $color-white
+    border: 1px solid
+    border-color: $color-grey
+  
+    &__rect
+        height: 5rem
+
+    &__text
+        height: 2rem
+
+@keyframes color-change
+    from
+        background-color: $color-grey
+    to
+        background-color: $color-grey-black
