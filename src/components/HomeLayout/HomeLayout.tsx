@@ -1,6 +1,8 @@
 import styles from './styles.module.sass'
 import MenuLogos from '../MenuLogos/MenuLogos'
 import Header from '../Header'
+import HomeLayoutHeader from '../HomeLayoutHeader/HomeLayoutHeader'
+import LineDivider from '../LineDivider/LineDivider'
 import UserProfileSection from './UserProfileSection'
 import MenuSection from './MenuSection'
 
@@ -18,7 +20,11 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
 				<Header />
 				<MenuSection />
 			</div>
-			<div className={styles.HomeLayoutContainer__mainDetails}>{children}</div>
+			<div className={styles.HomeLayoutContainer__mainDetails}>
+				<HomeLayoutHeader />
+				<LineDivider />
+				{children}
+			</div>
 			<div className={styles.HomeLayoutContainer__userProfile}>
 				<UserProfileSection />
 			</div>
