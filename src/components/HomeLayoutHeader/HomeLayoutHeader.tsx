@@ -1,14 +1,26 @@
+import { Dispatch, SetStateAction } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import styles from './styles.module.sass'
-import Link from 'next/link'
 import { BsSearch } from 'react-icons/bs'
+
+//types
+import { ActiveSection } from '@/types'
 
 type SearchInputData = {
 	searchText: string
 }
 
-const HomeLayoutHeader = () => {
+interface HomeLayoutHeaderProps {
+	activeSection: ActiveSection
+	setActiveSection: Dispatch<SetStateAction<ActiveSection>>
+}
+
+const HomeLayoutHeader = ({ activeSection, setActiveSection }: HomeLayoutHeaderProps) => {
 	const { handleSubmit, register } = useForm<SearchInputData>()
+
+	const handleActiveSection = (section: ActiveSection) => {
+		setActiveSection(section)
+	}
 
 	const handleSearchSubmit: SubmitHandler<SearchInputData> = data => {
 		if (data.searchText.trim() === '') return
@@ -18,13 +30,25 @@ const HomeLayoutHeader = () => {
 	return (
 		<section className={styles.HomeLayoutHeaderContainer}>
 			<div className={styles.HomeLayoutHeaderContainer__section}>
-				<Link href='/'>Movies</Link>
+				<div
+					style={{ color: activeSection === 'PopularMovies' ? '#FFFFFF' : '#3F3F3F' }}
+					onClick={() => handleActiveSection('PopularMovies')}>
+					Movies
+				</div>
 			</div>
 			<div className={styles.HomeLayoutHeaderContainer__section}>
-				<Link href='/'>Series</Link>
+				<div
+					style={{ color: activeSection === 'Series' ? '#FFFFFF' : '#3F3F3F' }}
+					onClick={() => handleActiveSection('Series')}>
+					Series
+				</div>
 			</div>
 			<div className={styles.HomeLayoutHeaderContainer__section}>
-				<Link href='/'>TV Shows</Link>
+				<div
+					style={{ color: activeSection === 'TVshows' ? '#FFFFFF' : '#3F3F3F' }}
+					onClick={() => handleActiveSection('TVshows')}>
+					TV Shows
+				</div>
 			</div>
 			<form className={styles.HomeLayoutHeaderContainer__searchContainer} onSubmit={handleSubmit(handleSearchSubmit)}>
 				<input

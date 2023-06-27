@@ -6,19 +6,55 @@ export interface ParamsType {
 	sorty_by?: string
 }
 
-export interface MovieDataType {
+export interface PopularMovieType {
 	adult: boolean
-	backdrop_path: string //'/e2Jd0sYMCe6qvMbswGQbM0Mzxt0.jpg'
+	backdrop_path: string
 	genre_ids: Array<number>
 	id: number
 	original_language: string
 	original_title: string
 	overview: string
 	popularity: number
-	poster_path: string //'/fiVW06jE7z9YnO4trhaMEdclSiC.jpg'
-	release_date: string //'2023-05-17'
+	poster_path: string
+	release_date: string
 	title: string
 	video: boolean
 	vote_average: number
 	vote_count: number
 }
+
+export interface SeriesMovieType {
+	backdrop_path: string
+	first_air_date: string
+	genre_ids: Array<number>
+	id: number
+	name: string
+	origin_country: Array<string>
+	original_language: string
+	original_name: string
+	overview: string
+	popularity: number
+	poster_path: string
+	vote_average: string
+	vote_count: number
+}
+
+export interface TVshowsType {
+	adult: boolean
+	backdrop_path: string
+	id: number
+	name: string
+	original_language: string
+	original_name: string
+	overview: string
+	poster_path: string
+	media_type: string
+	genre_ids: Array<number>
+	popularity: number
+	first_air_date: string
+	vote_average: number
+	vote_count: number
+	origin_country: Array<string>
+}
+
+export type ActiveSection = 'PopularMovies' | 'Series' | 'TVshows'

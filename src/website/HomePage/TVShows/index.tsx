@@ -1,21 +1,17 @@
 import { useState } from 'react'
 import { useQuery } from 'react-query'
 import defaultParams from '@/utils/constants/defaultParams'
-import { fetchPopularMovies } from '@/utils/fetchPopularMovies'
+import { fetchTVShows } from '@/utils/fetchTVShows'
 import MovieCard from '@/components/MovieCard'
 import ErrorResponse from '@/components/ErrorResponse'
 import LoadingMoviesScreen from '../LoadingMovies'
 
 //types
-import { PopularMovieType } from '@/types'
+import { TVshowsType } from '@/types'
 
-const PopularMovies = () => {
-	const [popularMoviesParams, updateMoviesParams] = useState(defaultParams)
-	const {
-		data: popularMovies,
-		isLoading,
-		isError,
-	} = useQuery('popular movies', () => fetchPopularMovies({ params: popularMoviesParams }))
+const TVShows = () => {
+	const [tvShowsParams, updateTVShowsParams] = useState(defaultParams)
+	const { data: tvShows, isLoading, isError } = useQuery('tv shows', () => fetchTVShows({ params: tvShowsParams }))
 
 	if (isLoading) {
 		return <LoadingMoviesScreen />
@@ -26,11 +22,11 @@ const PopularMovies = () => {
 	}
 	return (
 		<>
-			{popularMovies?.results?.map((movie: PopularMovieType) => (
+			{tvShows?.results?.map((movie: TVshowsType) => (
 				<MovieCard key={movie.id} {...movie} />
 			))}
 		</>
 	)
 }
 
-export default PopularMovies
+export default TVShows

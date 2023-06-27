@@ -3,12 +3,20 @@ import cx from 'classnames'
 import Link from 'next/link'
 import { FiBookmark } from 'react-icons/fi'
 import { SiImdb } from 'react-icons/si'
-import { MovieDataType } from '@/types'
+import { PopularMovieType, SeriesMovieType, TVshowsType } from '@/types'
 import { imageURL } from '@/utils/constants/imageURL'
 
-type MovieCardProps = MovieDataType
+type MovieCardProps = PopularMovieType | SeriesMovieType | TVshowsType
 
-const MovieCard = ({ original_title, release_date, vote_average, poster_path }: MovieCardProps) => {
+const MovieCard = ({
+	original_title,
+	original_name,
+	release_date,
+	first_air_date,
+	vote_average,
+	poster_path,
+	id,
+}: MovieCardProps) => {
 	const isBookMarked = false
 	const ImagePath = imageURL + poster_path
 	const bookMarkStyle = cx(styles.MovieCard__Container__Details__MovieTitleHeading__icon, {
@@ -20,8 +28,17 @@ const MovieCard = ({ original_title, release_date, vote_average, poster_path }: 
 			<div className={styles.MovieCard__Container__Details}>
 				<div className={styles.MovieCard__Container__Details__MovieTitleHeading}>
 					<h3 className={styles.MovieCard__Container__Details__MovieTitleHeading__title}>
-						{original_title.substring(0, 20)}{' '}
-						{original_title.substring(0, 20).length !== original_title.length && '...'}
+						{original_title ? (
+							<>
+								{original_title?.substring(0, 20)}{' '}
+								{original_title?.substring(0, 20)?.length !== original_title?.length && '...'}
+							</>
+						) : (
+							<>
+								{original_name?.substring(0, 20)}{' '}
+								{original_name?.substring(0, 20)?.length !== original_name?.length && '...'}
+							</>
+						)}
 					</h3>
 					<div className={bookMarkStyle}>
 						{isBookMarked && 'Bookmarked'}
@@ -29,7 +46,7 @@ const MovieCard = ({ original_title, release_date, vote_average, poster_path }: 
 					</div>
 				</div>
 				<div className={styles.MovieCard__Container__Details__ReleaseDate}>
-					<span>{release_date}</span>
+					<span>{release_date ? release_date : first_air_date}</span>
 				</div>
 				<div className={styles.MovieCard__Container__Details__Rating}>
 					<span className={styles.MovieCard__Container__Details__Rating__icon}>
@@ -39,7 +56,7 @@ const MovieCard = ({ original_title, release_date, vote_average, poster_path }: 
 				</div>
 				<div className={styles.MovieCard__Container__Details__Action}>
 					<button className={styles.MovieCard__Container__Details__Action__Btn}>
-						<Link href='/'>View Details</Link>
+						<Link href={'/movie-details/' + id}>View Details</Link>
 					</button>
 				</div>
 			</div>

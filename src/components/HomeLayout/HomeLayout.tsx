@@ -1,3 +1,5 @@
+import React, { Dispatch, SetStateAction } from 'react'
+import { useRouter } from 'next/router'
 import styles from './styles.module.sass'
 import MenuLogos from '../MenuLogos/MenuLogos'
 import Header from '../Header'
@@ -6,11 +8,17 @@ import LineDivider from '../LineDivider/LineDivider'
 import UserProfileSection from './UserProfileSection'
 import MenuSection from './MenuSection'
 
+//types
+import { ActiveSection } from '@/types'
+
 interface HomeLayoutProps {
 	children: React.ReactNode
+	activeSection: ActiveSection
+	setActiveSection: Dispatch<SetStateAction<ActiveSection>>
 }
 
-const HomeLayout = ({ children }: HomeLayoutProps) => {
+const HomeLayout = ({ children, activeSection, setActiveSection }: HomeLayoutProps) => {
+	const router = useRouter()
 	return (
 		<div className={styles.HomeLayoutContainer}>
 			<div className={styles.HomeLayoutContainer__menuLogos}>
@@ -21,8 +29,12 @@ const HomeLayout = ({ children }: HomeLayoutProps) => {
 				<MenuSection />
 			</div>
 			<div className={styles.HomeLayoutContainer__mainDetails}>
-				<HomeLayoutHeader />
-				<LineDivider />
+				{router.pathname === '/' && (
+					<>
+						<HomeLayoutHeader activeSection={activeSection} setActiveSection={setActiveSection} />
+						<LineDivider />
+					</>
+				)}
 				{children}
 			</div>
 			<div className={styles.HomeLayoutContainer__userProfile}>
