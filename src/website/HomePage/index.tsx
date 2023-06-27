@@ -1,15 +1,16 @@
+import styles from './styles.module.sass'
 import HomeLayout from '@/components/HomeLayout/HomeLayout'
-import Link from 'next/link'
+import PopularMovies from './PopularMovies'
 
 const HomePage = () => {
 	return (
 		<HomeLayout>
-			<div>
-				<h1>Home Page</h1>
-			</div>
-			<div>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo consequuntur error dignissimos sed quos nostrum
-				dolores aut totam deserunt recusandae?
+			<div className={styles.HomePageContainer}>
+				<h2 className={styles.HomePageContainer__title}>Popular movies</h2>
+				{/*section selected for popular movies*/}
+				<section className={styles.HomePageContainer__MoviesSection}>
+					<PopularMovies />
+				</section>
 			</div>
 		</HomeLayout>
 	)

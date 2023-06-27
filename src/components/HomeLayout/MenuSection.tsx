@@ -1,7 +1,8 @@
 import styles from './menuSection.module.sass'
 import { signOut } from 'next-auth/react'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import cx from 'classnames'
+import useActivePath from '@/hooks/useActivePath'
 import { PiWarningCircle } from 'react-icons/pi'
 import { IoHome } from 'react-icons/io5'
 import { BiTimeFive } from 'react-icons/bi'
@@ -10,18 +11,19 @@ import { TbLogout2 } from 'react-icons/tb'
 import LineDivider from '../LineDivider/LineDivider'
 
 const MenuSection = () => {
-	const router = useRouter()
 	const handleLogout = () => {
 		return signOut()
 	}
-	console.log('router: ', router)
+
 	return (
 		<section className={styles.MenuSection}>
 			<MenuSectionHome />
 			<LineDivider />
 			<MenuSectionLibrary />
 			<LineDivider />
-			<Link href='/about' className={styles.MenuSection__about}>
+			<Link
+				href='/about'
+				className={cx(styles.MenuSection__about, { [styles.MenuSection__about__isActive]: useActivePath('/about') })}>
 				<span className={styles.MenuSection__about__icon}>
 					<PiWarningCircle size={24} />
 				</span>
@@ -44,7 +46,11 @@ const MenuSectionHome = () => {
 		<div className={styles.MenuSection__home}>
 			<div className={styles.MenuSection__home__title}>Menu</div>
 			<div className={styles.MenuSection__home__subSection}>
-				<Link href='/' className={styles.MenuSection__home__subSection__item}>
+				<Link
+					href='/'
+					className={cx(styles.MenuSection__home__subSection__item, {
+						[styles.MenuSection__home__subSection__item__isActive]: useActivePath('/'),
+					})}>
 					<span className={styles.MenuSection__home__subSection__item__icon}>
 						<IoHome size={24} />
 					</span>
@@ -60,13 +66,21 @@ const MenuSectionLibrary = () => {
 		<div className={styles.MenuSection__library}>
 			<div className={styles.MenuSection__library__title}>Library</div>
 			<div className={styles.MenuSection__library__subSection}>
-				<Link href='/' className={styles.MenuSection__library__subSection__item}>
+				<Link
+					href='/recently-viewed-movies'
+					className={cx(styles.MenuSection__library__subSection__item, {
+						[styles.MenuSection__library__subSection__item__isActive]: useActivePath('/recently-viewed-movies'),
+					})}>
 					<span className={styles.MenuSection__library__subSection__item__icon}>
 						<BiTimeFive size={24} />
 					</span>
 					<span className={styles.MenuSection__library__subSection__item__text}>Recently viewed movies</span>
 				</Link>
-				<Link href='/' className={styles.MenuSection__library__subSection__item}>
+				<Link
+					href='/bookmarked-movies'
+					className={cx(styles.MenuSection__library__subSection__item, {
+						[styles.MenuSection__library__subSection__item__isActive]: useActivePath('/bookmarked-movies'),
+					})}>
 					<span className={styles.MenuSection__library__subSection__item__icon}>
 						<FiBookmark size={24} />
 					</span>

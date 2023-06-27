@@ -1,0 +1,54 @@
+@import 'const.sass'
+
+.MovieCard__Container
+    background-color: $color-grey
+    height: 237px
+    width: 320px
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    position: relative
+    border-radius: $border-radius
+
+    &__Details
+        padding: 6rem 1rem
+
+        &__MovieTitleHeading
+            display: flex
+            justify-content: space-between
+
+            &__title
+                font-size: 1.25em
+            
+            &__icon
+                cursor: pointer
+                svg
+                    fill: $color-white
+                    border: none
+    
+            &__icon__bookMarked
+                display: flex
+                align-items: center
+                cursor: pointer
+                svg
+                    fill: $color-yellow
+                    border: none
+    
+        &__Rating
+            display: flex
+
+            &__icon
+                margin-right: 1rem
+
+        &__Action
+            display: flex
+            justify-content: flex-end
+
+            &__Btn
+                padding: 0.5rem
+                border: none
+                border-radius: $border-radius
+                background-color: $color-light-red
+                color: $color-white
+                font-family: $fallback-font
+
