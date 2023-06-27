@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form'
 import styles from './styles.module.sass'
 import Link from 'next/link'
+import { BsSearch } from 'react-icons/bs'
 
 type SearchInputData = {
 	searchText: string
@@ -10,6 +11,7 @@ const HomeLayoutHeader = () => {
 	const { handleSubmit, register } = useForm<SearchInputData>()
 
 	const handleSearchSubmit: SubmitHandler<SearchInputData> = data => {
+		if (data.searchText.trim() === '') return
 		console.log('data: ', data)
 	}
 
@@ -27,10 +29,14 @@ const HomeLayoutHeader = () => {
 			<form className={styles.HomeLayoutHeaderContainer__searchContainer} onSubmit={handleSubmit(handleSearchSubmit)}>
 				<input
 					{...register('searchText')}
+					type='text'
 					className={styles.HomeLayoutHeaderContainer__searchContainer__input}
-					placeholder='🔎  Search movie'
-					title='CMD + K to search'
+					placeholder='Search movie'
+					title='Search for a movie'
 				/>
+				<button type='submit' className={styles.HomeLayoutHeaderContainer__searchContainer__searchBtn}>
+					<BsSearch size={24} color='#848484' />
+				</button>
 			</form>
 		</section>
 	)

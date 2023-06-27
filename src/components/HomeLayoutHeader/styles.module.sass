@@ -14,17 +14,26 @@
     
     &__searchContainer
         flex: 3
+        display: flex
 
         &__input
             display: flex
-            padding: 1.5rem
+            padding: 1.5rem 1rem
             height: 1rem
             align-items: center
-            border-radius: $border-radius
+            border-top-left-radius: $border-radius
+            border-bottom-left-radius: $border-radius
             border: none
             color: $color-grey
             width: 95%
             font-size: 1em
             font-family: $fallback-font
+
+        &__searchBtn
+            cursor: pointer
+            border-bottom-right-radius: $border-radius
+            border-top-right-radius: $border-radius
+            width: 4rem
+            
 
 
