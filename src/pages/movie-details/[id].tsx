@@ -10,10 +10,10 @@ const MovieDetails = () => {
 	return (
 		<>
 			<Head>
-				<title>About | Movies Finder 🎬</title>
+				<title>Movie details 🎬</title>
 				<meta
 					name='description'
-					content='About the Movies FInder application | Find your favorite movies using the Movies Finder application'
+					content='Movies FInder application | Find your favorite movies using the Movies Finder application'
 				/>
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />

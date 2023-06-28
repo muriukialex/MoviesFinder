@@ -58,46 +58,46 @@ export interface TVshowsType {
 }
 
 export interface MovieDetailsType {
-	adult: boolean
-	backdrop_path: null | string | number
-	belongs_to_collection: null | string | number
-	budget: number
-	genres: Array<{
+	adult?: boolean
+	backdrop_path?: null | string | number
+	belongs_to_collection?: null | string | number
+	budget?: number
+	genres?: Array<{
 		id: number
 		name: string
 	}>
-	homepage: string
-	id: number
-	imdb_id: string //'tt0041283'
-	original_language: string
+	homepage?: string
+	id?: number
+	imdb_id?: string //'tt0041283'
+	original_language?: string
 	original_title: string //'Daybreak in Udi'
 	overview: string // 'An African tribe in the Eastern Nigerian village of Umana work to build a maternity hospital, with the aid of government officials, and against the opposition of some tribal members.'
-	popularity: number
-	poster_path: null | string | number
-	production_companies: Array<{
+	popularity?: number
+	poster_path?: null | string | number
+	production_companies?: Array<{
 		id: number
 		logo_path: null | string | number
 		name: string
 		origin_country: string
 	}>
-	production_countries: Array<{
+	production_countries?: Array<{
 		iso_3166_1: string
 		name: string
 	}>
 	release_date: string // '1949-08-15'
-	revenue: number
-	runtime: number
-	spoken_languages: Array<{
+	revenue?: number
+	runtime?: number
+	spoken_languages?: Array<{
 		english_name: string
 		iso_639_1: string
 		name: string
 	}>
-	status: string // 'Released'
-	tagline: string
-	title: string // 'Daybreak in Udi'
-	video: boolean
+	status?: string // 'Released'
+	tagline?: string
+	title?: string // 'Daybreak in Udi'
+	video?: boolean
 	vote_average: number
-	vote_count: number
+	vote_count?: number
 }
 
 export type ActiveSection = 'PopularMovies' | 'Series' | 'TVshows'

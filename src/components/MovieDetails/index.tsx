@@ -6,8 +6,15 @@ import { MovieDetailsType, ImageDataType } from '@/types'
 import { imageURL } from '@/utils/constants/imageURL'
 import LoadingScreen from '../Loading'
 import LoadingMovieDetails from './LoadingMovieDetails'
+import ErrorResponse from '../ErrorResponse'
 
-type MovieDetailsProps = { isLoading: boolean; imageLoading: boolean; imageData: ImageDataType } & MovieDetailsType
+type MovieDetailsProps = {
+	isLoading: boolean
+	imageLoading: boolean
+	imageData: ImageDataType
+	isError: boolean
+	imageLoadingError: boolean
+} & MovieDetailsType
 
 const MovieDetails = ({
 	poster_path,
@@ -17,6 +24,8 @@ const MovieDetails = ({
 	overview,
 	isLoading,
 	imageLoading,
+	isError,
+	imageLoadingError,
 	imageData,
 }: MovieDetailsProps) => {
 	const isBookMarked = false
@@ -26,14 +35,24 @@ const MovieDetails = ({
 	if (isLoading) {
 		return <LoadingMovieDetails />
 	}
+	if (isError) {
+		return <ErrorResponse />
+	}
 
 	const bookMarkStyle = cx(styles.MovieDetailsContainer__Details__MovieTitleHeading__icon, {
 		[styles.MovieDetailsContainer__Details__MovieTitleHeading__icon__bookMarked]: isBookMarked,
 	})
-	console.log('imageLoading: ', imageLoading)
+
 	return (
 		<div className={styles.MovieDetailsContainer}>
-			<div className={styles.MovieDetailsContainer__Image} style={{ backgroundImage: `url(${ImagePath})` }} />
+			{imageLoading ? (
+				<LoadingScreen width='100%' height='400px' variant='rect' />
+			) : (
+				<div
+					className={styles.MovieDetailsContainer__Image}
+					style={{ backgroundImage: imageLoadingError ? '#848484' : `url(${ImagePath})` }}
+				/>
+			)}
 			<div className={styles.MovieDetailsContainer__Details}>
 				<div className={styles.MovieDetailsContainer__Details__MovieTitleHeading}>
 					<h3 className={styles.MovieDetailsContainer__Details__MovieTitleHeading__title}>{original_title}</h3>
