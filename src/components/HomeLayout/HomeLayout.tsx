@@ -13,8 +13,8 @@ import { ActiveSection } from '@/types'
 
 interface HomeLayoutProps {
 	children: React.ReactNode
-	activeSection: ActiveSection
-	setActiveSection: Dispatch<SetStateAction<ActiveSection>>
+	activeSection?: ActiveSection
+	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
 }
 
 const HomeLayout = ({ children, activeSection, setActiveSection }: HomeLayoutProps) => {

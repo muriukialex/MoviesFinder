@@ -11,15 +11,15 @@ type SearchInputData = {
 }
 
 interface HomeLayoutHeaderProps {
-	activeSection: ActiveSection
-	setActiveSection: Dispatch<SetStateAction<ActiveSection>>
+	activeSection?: ActiveSection
+	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
 }
 
 const HomeLayoutHeader = ({ activeSection, setActiveSection }: HomeLayoutHeaderProps) => {
 	const { handleSubmit, register } = useForm<SearchInputData>()
 
 	const handleActiveSection = (section: ActiveSection) => {
-		setActiveSection(section)
+		setActiveSection && setActiveSection(section)
 	}
 
 	const handleSearchSubmit: SubmitHandler<SearchInputData> = data => {

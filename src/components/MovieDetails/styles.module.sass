@@ -1,0 +1,50 @@
+@import 'const.sass'
+
+.MovieDetailsContainer
+
+    &__Image
+        height: 400px
+        width: 100%
+        background-position: center
+        background-repeat: no-repeat
+        background-size: cover
+        position: relative
+        border-radius: $border-radius
+
+    &__Details
+        padding: 4rem 0rem
+
+        &__MovieTitleHeading
+            display: flex
+            justify-content: space-between
+
+            &__title
+                font-size: 1.25em
+            
+            &__icon
+                cursor: pointer
+                svg
+                    fill: $color-white
+                    border: none
+    
+            &__icon__bookMarked
+                display: flex
+                align-items: center
+                cursor: pointer
+                svg
+                    fill: $color-yellow
+                    border: none
+        
+        &__ReleaseDate
+            margin-top: 1rem
+
+        &__Rating
+            margin-top: 1rem
+            display: flex
+
+            &__icon
+                margin-right: 1rem
+        
+        &__SummaryPlot
+            margin-top: 1rem
+            color: $color-grey
