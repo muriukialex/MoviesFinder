@@ -1,9 +1,9 @@
 import axios from 'axios'
-import { ParamsType } from '@/types'
+import { DefaultParamsType } from '@/types'
 
 interface fetcherProps {
 	path: string
-	params?: ParamsType
+	params?: DefaultParamsType
 }
 
 const fetcher = async ({ path, params }: fetcherProps) => {

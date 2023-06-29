@@ -1,12 +1,10 @@
-import { ParamsType } from '@/types'
+import { DefaultParamsType, APIResults, PopularMovieType } from '@/types'
 import fetcher from '../fetcher'
 
 interface FetchPopularMoviesProps {
-	params?: ParamsType
+	params?: DefaultParamsType
 }
 
-export const fetchPopularMovies = async ({ params }: FetchPopularMoviesProps) => {
+export const fetchPopularMovies = async ({ params }: FetchPopularMoviesProps): Promise<APIResults<PopularMovieType>> => {
 	return await fetcher({ path: 'movie/popular', params })
 }
-
-// movie details api https://api.themoviedb.org/3/movie/{movie_id}

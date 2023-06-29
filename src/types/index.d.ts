@@ -1,4 +1,4 @@
-export interface ParamsType {
+export interface DefaultParamsType {
 	page: number
 	language?: string
 	include_adult?: boolean
@@ -57,6 +57,23 @@ export interface TVshowsType {
 	origin_country: Array<string>
 }
 
+export interface SearchMovieResultsType {
+	adult: boolean
+	backdrop_path: string
+	genre_ids: Array<number>
+	id: number
+	original_language: string
+	original_title: string
+	overview: string
+	popularity: number
+	poster_path: string
+	release_date: string
+	title: string
+	video: boolean
+	vote_average: number
+	vote_count: number
+}
+
 export interface MovieDetailsType {
 	adult?: boolean
 	backdrop_path?: null | string | number
@@ -68,10 +85,10 @@ export interface MovieDetailsType {
 	}>
 	homepage?: string
 	id?: number
-	imdb_id?: string //'tt0041283'
+	imdb_id?: string
 	original_language?: string
-	original_title: string //'Daybreak in Udi'
-	overview: string // 'An African tribe in the Eastern Nigerian village of Umana work to build a maternity hospital, with the aid of government officials, and against the opposition of some tribal members.'
+	original_title: string
+	overview: string
 	popularity?: number
 	poster_path?: null | string | number
 	production_companies?: Array<{
@@ -84,7 +101,7 @@ export interface MovieDetailsType {
 		iso_3166_1: string
 		name: string
 	}>
-	release_date: string // '1949-08-15'
+	release_date: string
 	revenue?: number
 	runtime?: number
 	spoken_languages?: Array<{
@@ -92,22 +109,22 @@ export interface MovieDetailsType {
 		iso_639_1: string
 		name: string
 	}>
-	status?: string // 'Released'
+	status?: string
 	tagline?: string
-	title?: string // 'Daybreak in Udi'
+	title?: string
 	video?: boolean
 	vote_average: number
 	vote_count?: number
 }
 
-export type ActiveSection = 'PopularMovies' | 'Series' | 'TVshows'
+export type ActiveSection = 'PopularMovies' | 'Series' | 'TVshows' | 'SearchResults'
 
 export interface ImageDataType {
 	backdrops: Array<{
 		aspect_ratio: number
 		height: number
 		iso_639_1: null | string | number
-		file_path: string //'/gGHjHezkPk6iY8fuGf2JsM7H4OL.jpg'
+		file_path: string
 		vote_average: number
 		vote_count: number
 		width: number
@@ -117,7 +134,7 @@ export interface ImageDataType {
 		aspect_ratio: number
 		height: number
 		iso_639_1: null | number | string
-		file_path: string // '/rJNbiQX9fXaQLj4q2Irp3yrXTum.jpg'
+		file_path: string
 		vote_average: number
 		vote_count: number
 		width: number
@@ -126,9 +143,16 @@ export interface ImageDataType {
 		aspect_ratio: number
 		height: number
 		iso_639_1: null | number | string
-		file_path: string // '/rJNbiQX9fXaQLj4q2Irp3yrXTum.jpg'
+		file_path: string
 		vote_average: number
 		vote_count: number
 		width: number
 	}>
+}
+
+export interface APIResults<T> {
+	page: number
+	results: Array<T>
+	total_pages: number
+	total_results: number
 }
