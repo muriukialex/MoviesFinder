@@ -1,2 +1,13 @@
-//https://api.themoviedb.org/3/search/movie
-//https://api.themoviedb.org/3/search/movie?query=john&include_adult=false&language=en-US&page=1
+import { DefaultParamsType, APIResults, SearchMovieResultsType } from '@/types'
+import fetcher from '../fetcher'
+
+interface SearchMoviesByTermProps extends DefaultParamsType {
+	query: string
+	primary_release_year?: string
+	region?: string
+	year?: string
+}
+
+export const searchMoviesByTerm = async (params: SearchMoviesByTermProps): Promise<APIResults<SearchMovieResultsType>> => {
+	return await fetcher({ path: 'search/movie', params })
+}

@@ -9,15 +9,16 @@ import UserProfileSection from './UserProfileSection'
 import MenuSection from './MenuSection'
 
 //types
-import { ActiveSection } from '@/types'
+import { ActiveSection, SearchMovieResultsType, APIResults } from '@/types'
 
 interface HomeLayoutProps {
 	children: React.ReactNode
 	activeSection?: ActiveSection
 	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
+	setSearchMovieResults?: Dispatch<SetStateAction<APIResults<SearchMovieResultsType> | null>>
 }
 
-const HomeLayout = ({ children, activeSection, setActiveSection }: HomeLayoutProps) => {
+const HomeLayout = ({ children, activeSection, setActiveSection, setSearchMovieResults }: HomeLayoutProps) => {
 	const router = useRouter()
 	return (
 		<div className={styles.HomeLayoutContainer}>
@@ -31,7 +32,11 @@ const HomeLayout = ({ children, activeSection, setActiveSection }: HomeLayoutPro
 			<div className={styles.HomeLayoutContainer__mainDetails}>
 				{router.pathname === '/' && (
 					<>
-						<HomeLayoutHeader activeSection={activeSection} setActiveSection={setActiveSection} />
+						<HomeLayoutHeader
+							activeSection={activeSection}
+							setActiveSection={setActiveSection}
+							setSearchMovieResults={setSearchMovieResults}
+						/>
 						<LineDivider />
 					</>
 				)}

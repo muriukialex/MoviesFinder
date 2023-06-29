@@ -1,10 +1,12 @@
 import { Dispatch, SetStateAction } from 'react'
 import { useForm, SubmitHandler } from 'react-hook-form'
+import { searchMoviesByTerm } from '@/utils/searchMovie'
+import defaultParams from '@/utils/constants/defaultParams'
 import styles from './styles.module.sass'
 import { BsSearch } from 'react-icons/bs'
 
 //types
-import { ActiveSection } from '@/types'
+import { ActiveSection, SearchMovieResultsType, APIResults } from '@/types'
 
 type SearchInputData = {
 	searchText: string
@@ -13,18 +15,24 @@ type SearchInputData = {
 interface HomeLayoutHeaderProps {
 	activeSection?: ActiveSection
 	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
+	setSearchMovieResults?: Dispatch<SetStateAction<APIResults<SearchMovieResultsType> | null>>
 }
 
-const HomeLayoutHeader = ({ activeSection, setActiveSection }: HomeLayoutHeaderProps) => {
+const HomeLayoutHeader = ({ activeSection, setActiveSection, setSearchMovieResults }: HomeLayoutHeaderProps) => {
 	const { handleSubmit, register } = useForm<SearchInputData>()
 
 	const handleActiveSection = (section: ActiveSection) => {
 		setActiveSection && setActiveSection(section)
 	}
 
-	const handleSearchSubmit: SubmitHandler<SearchInputData> = data => {
+	const handleSearchSubmit: SubmitHandler<SearchInputData> = async data => {
 		if (data.searchText.trim() === '') return
-		console.log('data: ', data)
+		const searchResults: APIResults<SearchMovieResultsType> = await searchMoviesByTerm({
+			query: data.searchText,
+			...defaultParams,
+		})
+		setSearchMovieResults && setSearchMovieResults(searchResults)
+		setActiveSection && setActiveSection('SearchResults')
 	}
 
 	return (

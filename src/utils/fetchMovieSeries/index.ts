@@ -1,10 +1,10 @@
-import { ParamsType } from '@/types'
+import { DefaultParamsType, APIResults, SeriesMovieType } from '@/types'
 import fetcher from '../fetcher'
 
 interface FetchMovieSeriesProps {
-	params?: ParamsType
+	params?: DefaultParamsType
 }
 
-export const fetchMovieSeries = async ({ params }: FetchMovieSeriesProps) => {
+export const fetchMovieSeries = async ({ params }: FetchMovieSeriesProps): Promise<APIResults<SeriesMovieType>> => {
 	return await fetcher({ path: 'tv/top_rated', params })
 }
