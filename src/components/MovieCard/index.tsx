@@ -6,7 +6,15 @@ import { SiImdb } from 'react-icons/si'
 import { PopularMovieType, SeriesMovieType, TVshowsType } from '@/types'
 import { imageURL } from '@/utils/constants/imageURL'
 
-type MovieCardProps = PopularMovieType | SeriesMovieType | TVshowsType
+type MovieType = PopularMovieType | SeriesMovieType | TVshowsType
+
+interface MovieCardProps {
+	original_title?: string
+	original_name?: string
+	release_date?: string
+	first_air_date?: string
+	genre?: string
+}
 
 const MovieCard = ({
 	original_title,
@@ -16,7 +24,8 @@ const MovieCard = ({
 	vote_average,
 	poster_path,
 	id,
-}: MovieCardProps) => {
+	genre,
+}: MovieCardProps & MovieType) => {
 	const isBookMarked = false
 	const ImagePath = imageURL + poster_path
 	const bookMarkStyle = cx(styles.MovieCard__Container__Details__MovieTitleHeading__icon, {
@@ -56,7 +65,7 @@ const MovieCard = ({
 				</div>
 				<div className={styles.MovieCard__Container__Details__Action}>
 					<button className={styles.MovieCard__Container__Details__Action__Btn}>
-						<Link href={'/movie-details/' + id}>View Details</Link>
+						<Link href={'/movie-details/' + id + (genre ? '?' + genre : '')}>View Details</Link>
 					</button>
 				</div>
 			</div>
