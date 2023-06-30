@@ -7,9 +7,13 @@ import ErrorResponse from '@/components/ErrorResponse'
 import LoadingMoviesScreen from '../LoadingMovies'
 
 //types
-import { SeriesMovieType } from '@/types'
+import { SeriesMovieType, ActiveSection } from '@/types'
 
-const SeriesMovies = () => {
+interface SeriesMoviesProps {
+	activeSection: ActiveSection
+}
+
+const SeriesMovies = ({ activeSection }: SeriesMoviesProps) => {
 	const [seriesMoviesParams, updateSeriesMoviesParams] = useState(defaultParams)
 	const {
 		data: seriesMovies,
@@ -24,10 +28,11 @@ const SeriesMovies = () => {
 	if (isError) {
 		return <ErrorResponse />
 	}
+	const genre = activeSection === 'Series' ? 'series' : ''
 	return (
 		<>
 			{seriesMovies?.results?.map((movie: SeriesMovieType) => (
-				<MovieCard key={movie.id} {...movie} />
+				<MovieCard key={movie.id} genre={genre} {...movie} />
 			))}
 		</>
 	)

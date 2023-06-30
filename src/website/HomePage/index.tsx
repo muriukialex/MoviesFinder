@@ -12,6 +12,7 @@ import { ActiveSection, SearchMovieResultsType, APIResults } from '@/types'
 const HomePage = () => {
 	const [activeSection, setActiveSection] = useState<ActiveSection>('PopularMovies')
 	const [searchMovieResults, setSearchMovieResults] = useState<APIResults<SearchMovieResultsType> | null>(null)
+	const [isSearchResultsLoading, setIsSearchResultsLoading] = useState(true)
 	const title = useMemo(() => {
 		switch (activeSection) {
 			case 'PopularMovies':
@@ -31,14 +32,17 @@ const HomePage = () => {
 		<HomeLayout
 			activeSection={activeSection}
 			setActiveSection={setActiveSection}
-			setSearchMovieResults={setSearchMovieResults}>
+			setSearchMovieResults={setSearchMovieResults}
+			setIsSearchResultsLoading={setIsSearchResultsLoading}>
 			<div className={styles.HomePageContainer}>
 				<h2 className={styles.HomePageContainer__title}>{title}</h2>
 				<section className={styles.HomePageContainer__MoviesSection}>
 					{activeSection === 'PopularMovies' && <PopularMovies />}
-					{activeSection === 'TVshows' && <TVShows />}
-					{activeSection === 'Series' && <SeriesMovies />}
-					{activeSection === 'SearchResults' && <SearchResults searchMovieResults={searchMovieResults} />}
+					{activeSection === 'TVshows' && <TVShows activeSection={activeSection} />}
+					{activeSection === 'Series' && <SeriesMovies activeSection={activeSection} />}
+					{activeSection === 'SearchResults' && (
+						<SearchResults searchMovieResults={searchMovieResults} isSearchResultsLoading={isSearchResultsLoading} />
+					)}
 				</section>
 			</div>
 		</HomeLayout>

@@ -16,9 +16,15 @@ interface HomeLayoutHeaderProps {
 	activeSection?: ActiveSection
 	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
 	setSearchMovieResults?: Dispatch<SetStateAction<APIResults<SearchMovieResultsType> | null>>
+	setIsSearchResultsLoading?: Dispatch<SetStateAction<boolean>>
 }
 
-const HomeLayoutHeader = ({ activeSection, setActiveSection, setSearchMovieResults }: HomeLayoutHeaderProps) => {
+const HomeLayoutHeader = ({
+	activeSection,
+	setActiveSection,
+	setSearchMovieResults,
+	setIsSearchResultsLoading,
+}: HomeLayoutHeaderProps) => {
 	const { handleSubmit, register } = useForm<SearchInputData>()
 
 	const handleActiveSection = (section: ActiveSection) => {
@@ -33,6 +39,7 @@ const HomeLayoutHeader = ({ activeSection, setActiveSection, setSearchMovieResul
 		})
 		setSearchMovieResults && setSearchMovieResults(searchResults)
 		setActiveSection && setActiveSection('SearchResults')
+		setIsSearchResultsLoading && setIsSearchResultsLoading(false)
 	}
 
 	return (

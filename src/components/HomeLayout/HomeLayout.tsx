@@ -16,9 +16,16 @@ interface HomeLayoutProps {
 	activeSection?: ActiveSection
 	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
 	setSearchMovieResults?: Dispatch<SetStateAction<APIResults<SearchMovieResultsType> | null>>
+	setIsSearchResultsLoading?: Dispatch<SetStateAction<boolean>>
 }
 
-const HomeLayout = ({ children, activeSection, setActiveSection, setSearchMovieResults }: HomeLayoutProps) => {
+const HomeLayout = ({
+	children,
+	activeSection,
+	setActiveSection,
+	setSearchMovieResults,
+	setIsSearchResultsLoading,
+}: HomeLayoutProps) => {
 	const router = useRouter()
 	return (
 		<div className={styles.HomeLayoutContainer}>
@@ -36,6 +43,7 @@ const HomeLayout = ({ children, activeSection, setActiveSection, setSearchMovieR
 							activeSection={activeSection}
 							setActiveSection={setActiveSection}
 							setSearchMovieResults={setSearchMovieResults}
+							setIsSearchResultsLoading={setIsSearchResultsLoading}
 						/>
 						<LineDivider />
 					</>

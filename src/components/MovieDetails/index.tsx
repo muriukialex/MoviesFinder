@@ -2,11 +2,13 @@ import styles from './styles.module.sass'
 import { FiBookmark } from 'react-icons/fi'
 import { SiImdb } from 'react-icons/si'
 import cx from 'classnames'
-import { MovieDetailsType, ImageDataType } from '@/types'
+import { MovieDetailsType, ImageDataType, SeriesAndTVshowDetailsType } from '@/types'
 import { imageURL } from '@/utils/constants/imageURL'
 import LoadingScreen from '../Loading'
 import LoadingMovieDetails from './LoadingMovieDetails'
 import ErrorResponse from '../ErrorResponse'
+
+type MovieType = MovieDetailsType | SeriesAndTVshowDetailsType
 
 type MovieDetailsProps = {
 	isLoading: boolean
@@ -14,12 +16,19 @@ type MovieDetailsProps = {
 	imageData: ImageDataType
 	isError: boolean
 	imageLoadingError: boolean
-} & MovieDetailsType
+	original_title?: string
+	original_name?: string
+	release_date?: string
+	first_air_date?: string
+	genre?: string
+} & MovieType
 
 const MovieDetails = ({
 	poster_path,
 	original_title,
+	original_name,
 	release_date,
+	first_air_date,
 	vote_average,
 	overview,
 	isLoading,
@@ -55,14 +64,16 @@ const MovieDetails = ({
 			)}
 			<div className={styles.MovieDetailsContainer__Details}>
 				<div className={styles.MovieDetailsContainer__Details__MovieTitleHeading}>
-					<h3 className={styles.MovieDetailsContainer__Details__MovieTitleHeading__title}>{original_title}</h3>
+					<h3 className={styles.MovieDetailsContainer__Details__MovieTitleHeading__title}>
+						{original_title ? original_title : original_name}
+					</h3>
 					<div className={bookMarkStyle}>
 						{isBookMarked && 'Bookmarked'}
 						<FiBookmark size={32} color={isBookMarked ? '#FFD233' : '#FFF'} title='Bookmark this movie' />
 					</div>
 				</div>
 				<div className={styles.MovieDetailsContainer__Details__ReleaseDate}>
-					<span>{release_date}</span>
+					<span>{release_date ? release_date : first_air_date}</span>
 				</div>
 				<div className={styles.MovieDetailsContainer__Details__Rating}>
 					<span className={styles.MovieDetailsContainer__Details__Rating__icon}>

@@ -7,9 +7,13 @@ import ErrorResponse from '@/components/ErrorResponse'
 import LoadingMoviesScreen from '../LoadingMovies'
 
 //types
-import { TVshowsType } from '@/types'
+import { TVshowsType, ActiveSection } from '@/types'
 
-const TVShows = () => {
+interface TVShowsProps {
+	activeSection: ActiveSection
+}
+
+const TVShows = ({ activeSection }: TVShowsProps) => {
 	const [tvShowsParams, updateTVShowsParams] = useState(defaultParams)
 	const { data: tvShows, isLoading, isError } = useQuery('tv shows', () => fetchTVShows({ params: tvShowsParams }))
 
@@ -20,10 +24,11 @@ const TVShows = () => {
 	if (isError) {
 		return <ErrorResponse />
 	}
+	const genre = activeSection === 'TVshows' ? 'tvShows' : ''
 	return (
 		<>
 			{tvShows?.results?.map((movie: TVshowsType) => (
-				<MovieCard key={movie.id} {...movie} />
+				<MovieCard key={movie.id} genre={genre} {...movie} />
 			))}
 		</>
 	)
