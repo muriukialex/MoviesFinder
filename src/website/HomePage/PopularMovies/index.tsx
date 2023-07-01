@@ -22,7 +22,7 @@ const PopularMovies = () => {
 	}
 
 	if (isError) {
-		return <ErrorResponse />
+		return <ErrorResponse message='Oops! There was an error loading popular movies' />
 	}
 	return (
 		<>

@@ -13,7 +13,7 @@ type MovieType = MovieDetailsType | SeriesAndTVshowDetailsType
 type MovieDetailsProps = {
 	isLoading: boolean
 	imageLoading: boolean
-	imageData: ImageDataType
+	imageData?: ImageDataType
 	isError: boolean
 	imageLoadingError: boolean
 	original_title?: string
@@ -45,7 +45,7 @@ const MovieDetails = ({
 		return <LoadingMovieDetails />
 	}
 	if (isError) {
-		return <ErrorResponse />
+		return <ErrorResponse message='Oops! There was an error loading data' />
 	}
 
 	const bookMarkStyle = cx(styles.MovieDetailsContainer__Details__MovieTitleHeading__icon, {

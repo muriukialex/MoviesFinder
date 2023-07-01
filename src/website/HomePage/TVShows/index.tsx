@@ -22,7 +22,7 @@ const TVShows = ({ activeSection }: TVShowsProps) => {
 	}
 
 	if (isError) {
-		return <ErrorResponse />
+		return <ErrorResponse message='Oops! There was an error loading TV shows' />
 	}
 	const genre = activeSection === 'TVshows' ? 'tvShows' : ''
 	return (

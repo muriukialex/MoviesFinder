@@ -26,7 +26,7 @@ const SeriesMovies = ({ activeSection }: SeriesMoviesProps) => {
 	}
 
 	if (isError) {
-		return <ErrorResponse />
+		return <ErrorResponse message='Oops! There was an error loading the movie series' />
 	}
 	const genre = activeSection === 'Series' ? 'series' : ''
 	return (
