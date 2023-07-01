@@ -34,7 +34,7 @@ const HomePage = () => {
 			setActiveSection={setActiveSection}
 			setSearchMovieResults={setSearchMovieResults}
 			setIsSearchResultsLoading={setIsSearchResultsLoading}>
-			<div className={styles.HomePageContainer}>
+			<div className={styles.HomePageContainer} id='movie-results-section'>
 				<h2 className={styles.HomePageContainer__title}>{title}</h2>
 				<section className={styles.HomePageContainer__MoviesSection}>
 					{activeSection === 'PopularMovies' && <PopularMovies />}
@@ -45,6 +45,9 @@ const HomePage = () => {
 					)}
 				</section>
 			</div>
+			{/* <div>
+				<button onClick={() => console.log('clicked me!')}>click me</button>
+			</div> */}
 		</HomeLayout>
 	)
 }

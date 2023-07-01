@@ -5,6 +5,7 @@ import { fetchMovieSeries } from '@/utils/fetchMovieSeries'
 import MovieCard from '@/components/MovieCard'
 import ErrorResponse from '@/components/ErrorResponse'
 import LoadingMoviesScreen from '../LoadingMovies'
+import PaginationComponent from '@/components/PaginationComponent'
 
 //types
 import { SeriesMovieType, ActiveSection } from '@/types'
@@ -19,7 +20,7 @@ const SeriesMovies = ({ activeSection }: SeriesMoviesProps) => {
 		data: seriesMovies,
 		isLoading,
 		isError,
-	} = useQuery('series movies', () => fetchMovieSeries({ params: seriesMoviesParams }))
+	} = useQuery(['series movies', seriesMoviesParams], () => fetchMovieSeries({ params: seriesMoviesParams }))
 
 	if (isLoading) {
 		return <LoadingMoviesScreen />
@@ -29,11 +30,20 @@ const SeriesMovies = ({ activeSection }: SeriesMoviesProps) => {
 		return <ErrorResponse message='Oops! There was an error loading the movie series' />
 	}
 	const genre = activeSection === 'Series' ? 'series' : ''
+	const SeriesMoviesResults = () => {
+		return (
+			<>
+				{seriesMovies?.results?.map((movie: SeriesMovieType) => (
+					<MovieCard key={movie.id} genre={genre} {...movie} />
+				))}
+			</>
+		)
+	}
+
 	return (
 		<>
-			{seriesMovies?.results?.map((movie: SeriesMovieType) => (
-				<MovieCard key={movie.id} genre={genre} {...movie} />
-			))}
+			<SeriesMoviesResults />
+			<PaginationComponent params={seriesMoviesParams} updateParams={updateSeriesMoviesParams} />
 		</>
 	)
 }
