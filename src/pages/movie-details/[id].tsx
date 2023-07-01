@@ -10,7 +10,7 @@ const MovieDetails = () => {
 	return (
 		<>
 			<Head>
-				<title>Movie details 🎬</title>
+				<title>🍿</title>
 				<meta
 					name='description'
 					content='Movies FInder application | Find your favorite movies using the Movies Finder application'

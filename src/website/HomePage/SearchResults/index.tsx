@@ -13,6 +13,9 @@ const SearchResults = ({ searchMovieResults, isSearchResultsLoading }: SearchRes
 	if (isSearchResultsLoading) {
 		return <LoadingMoviesScreen />
 	}
+	if (searchMovieResults?.results.length === 0) {
+		return <div>Oops! We couldn`t find any movies related to this search</div>
+	}
 	return (
 		<>
 			{searchMovieResults?.results?.map((movie: SearchMovieResultsType) => (

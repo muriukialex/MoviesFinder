@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import styles from './styles.module.sass'
 import { useRouter } from 'next/router'
 import { useQuery } from 'react-query'
-import { fetchMovieDetails, fetchMovieImage } from '@/utils/fetchMovieDetails'
+import { fetchMovieDetails, fetchMovieImage, fetchSeriesAndTVshowImages } from '@/utils/fetchMovieDetails'
 import { fetchSeriesAndTvShowDetails } from '@/utils/fetchMovieSeriesDetails'
 import HomeLayout from '@/components/HomeLayout/HomeLayout'
 import MovieDetails from '@/components/MovieDetails'
@@ -24,11 +24,19 @@ const MovieDetailsPage = () => {
 	}, [genre, movie_id])
 
 	const { data: movieData, isLoading, isError } = useQuery('movie details', () => fetchDetails)
-	const {
-		data: imageData,
-		isLoading: imageLoading,
-		isError: imageLoadingError,
-	} = useQuery('movie image', () => fetchMovieImage({ movie_id: movie_id }))
+
+	const fetchImages = useMemo(() => {
+		switch (genre) {
+			case 'series':
+				return fetchSeriesAndTVshowImages({ id: movie_id })
+			case 'tvShows':
+				return fetchSeriesAndTVshowImages({ id: movie_id })
+			default:
+				return fetchMovieImage({ movie_id: movie_id })
+		}
+	}, [genre, movie_id])
+
+	const { data: imageData, isLoading: imageLoading, isError: imageLoadingError } = useQuery('movie image', () => fetchImages)
 
 	return (
 		<HomeLayout>
