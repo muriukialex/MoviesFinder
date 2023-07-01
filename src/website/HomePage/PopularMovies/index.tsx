@@ -5,6 +5,7 @@ import { fetchPopularMovies } from '@/utils/fetchPopularMovies'
 import MovieCard from '@/components/MovieCard'
 import ErrorResponse from '@/components/ErrorResponse'
 import LoadingMoviesScreen from '../LoadingMovies'
+import PaginationComponent from '@/components/PaginationComponent'
 
 //types
 import { PopularMovieType } from '@/types'
@@ -15,7 +16,7 @@ const PopularMovies = () => {
 		data: popularMovies,
 		isLoading,
 		isError,
-	} = useQuery('popular movies', () => fetchPopularMovies({ params: popularMoviesParams }))
+	} = useQuery(['popular movies', popularMoviesParams], () => fetchPopularMovies({ params: popularMoviesParams }))
 
 	if (isLoading) {
 		return <LoadingMoviesScreen />
@@ -24,11 +25,19 @@ const PopularMovies = () => {
 	if (isError) {
 		return <ErrorResponse message='Oops! There was an error loading popular movies' />
 	}
+	const PopularMoviesResults = () => {
+		return (
+			<>
+				{popularMovies?.results?.map((movie: PopularMovieType) => (
+					<MovieCard key={movie.id} {...movie} />
+				))}
+			</>
+		)
+	}
 	return (
 		<>
-			{popularMovies?.results?.map((movie: PopularMovieType) => (
-				<MovieCard key={movie.id} {...movie} />
-			))}
+			<PopularMoviesResults />
+			<PaginationComponent params={popularMoviesParams} updateParams={updateMoviesParams} />
 		</>
 	)
 }
