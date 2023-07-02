@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { useQuery } from 'react-query'
-import defaultParams from '@/utils/constants/defaultParams'
 import { fetchPopularMovies } from '@/utils/fetchPopularMovies'
 import MovieCard from '@/components/MovieCard'
 import ErrorResponse from '@/components/ErrorResponse'
@@ -8,10 +7,14 @@ import LoadingMoviesScreen from '../LoadingMovies'
 import PaginationComponent from '@/components/PaginationComponent'
 
 //types
-import { PopularMovieType } from '@/types'
+import { PopularMovieType, DefaultParamsType } from '@/types'
 
-const PopularMovies = () => {
-	const [popularMoviesParams, updateMoviesParams] = useState(defaultParams)
+interface PopularMoviesProps {
+	popularMoviesParams: DefaultParamsType
+	updatePopularMoviesParams: Dispatch<SetStateAction<DefaultParamsType>>
+}
+
+const PopularMovies = ({ popularMoviesParams, updatePopularMoviesParams }: PopularMoviesProps) => {
 	const {
 		data: popularMovies,
 		isLoading,
@@ -25,6 +28,7 @@ const PopularMovies = () => {
 	if (isError) {
 		return <ErrorResponse message='Oops! There was an error loading popular movies' />
 	}
+
 	const PopularMoviesResults = () => {
 		return (
 			<>
@@ -34,10 +38,11 @@ const PopularMovies = () => {
 			</>
 		)
 	}
+
 	return (
 		<>
 			<PopularMoviesResults />
-			<PaginationComponent params={popularMoviesParams} updateParams={updateMoviesParams} />
+			<PaginationComponent params={popularMoviesParams} updateParams={updatePopularMoviesParams} />
 		</>
 	)
 }
