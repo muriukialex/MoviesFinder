@@ -10,6 +10,7 @@ import MenuSection from './MenuSection'
 
 //types
 import { ActiveSection, SearchMovieResultsType, APIResults } from '@/types'
+import { GenreType } from '@/utils/genres'
 
 interface HomeLayoutProps {
 	children: React.ReactNode
@@ -17,6 +18,10 @@ interface HomeLayoutProps {
 	setActiveSection?: Dispatch<SetStateAction<ActiveSection>>
 	setSearchMovieResults?: Dispatch<SetStateAction<APIResults<SearchMovieResultsType> | null>>
 	setIsSearchResultsLoading?: Dispatch<SetStateAction<boolean>>
+	movieGenres?: GenreType[]
+	setMovieGenres?: Dispatch<SetStateAction<GenreType[]>>
+	genreIDs?: number[]
+	setGenreIDs?: Dispatch<SetStateAction<number[]>>
 }
 
 const HomeLayout = ({
@@ -25,6 +30,10 @@ const HomeLayout = ({
 	setActiveSection,
 	setSearchMovieResults,
 	setIsSearchResultsLoading,
+	movieGenres,
+	setMovieGenres,
+	genreIDs,
+	setGenreIDs,
 }: HomeLayoutProps) => {
 	const router = useRouter()
 	return (
@@ -51,7 +60,14 @@ const HomeLayout = ({
 				{children}
 			</div>
 			<div className={styles.HomeLayoutContainer__userProfile}>
-				<UserProfileSection />
+				{movieGenres && setMovieGenres && (
+					<UserProfileSection
+						movieGenres={movieGenres}
+						setMovieGenres={setMovieGenres}
+						genreIDs={genreIDs}
+						setGenreIDs={setGenreIDs}
+					/>
+				)}
 			</div>
 		</div>
 	)

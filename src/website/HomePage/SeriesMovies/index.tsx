@@ -1,6 +1,5 @@
-import { useState } from 'react'
+import { Dispatch, SetStateAction } from 'react'
 import { useQuery } from 'react-query'
-import defaultParams from '@/utils/constants/defaultParams'
 import { fetchMovieSeries } from '@/utils/fetchMovieSeries'
 import MovieCard from '@/components/MovieCard'
 import ErrorResponse from '@/components/ErrorResponse'
@@ -8,14 +7,15 @@ import LoadingMoviesScreen from '../LoadingMovies'
 import PaginationComponent from '@/components/PaginationComponent'
 
 //types
-import { SeriesMovieType, ActiveSection } from '@/types'
+import { SeriesMovieType, ActiveSection, DefaultParamsType } from '@/types'
 
 interface SeriesMoviesProps {
 	activeSection: ActiveSection
+	seriesMoviesParams: DefaultParamsType
+	updateSeriesMoviesParams: Dispatch<SetStateAction<DefaultParamsType>>
 }
 
-const SeriesMovies = ({ activeSection }: SeriesMoviesProps) => {
-	const [seriesMoviesParams, updateSeriesMoviesParams] = useState(defaultParams)
+const SeriesMovies = ({ activeSection, seriesMoviesParams, updateSeriesMoviesParams }: SeriesMoviesProps) => {
 	const {
 		data: seriesMovies,
 		isLoading,
