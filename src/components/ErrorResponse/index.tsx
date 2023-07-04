@@ -9,7 +9,7 @@ interface ErrorResponseProps {
 const ErrorResponse = ({ message }: ErrorResponseProps) => {
 	return (
 		<div className={styles.ErrorResponse}>
-			<Image src={ErrorImage} alt='Error response' width={400} height={400} />
+			<Image className={styles.ErrorResponse__Image} src={ErrorImage} alt='Error response' width={400} height={400} />
 			<div className={styles.ErrorResponse__text}>{message}</div>
 		</div>
 	)
