@@ -11,17 +11,28 @@ interface UserProfileSectionProps {
 	setMovieGenres: Dispatch<SetStateAction<GenreType[]>>
 	genreIDs?: number[]
 	setGenreIDs?: Dispatch<SetStateAction<number[]>>
+	showProfileSection?: boolean
+	setShowProfileSection?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const UserProfileSection = ({ movieGenres, setMovieGenres, genreIDs, setGenreIDs }: UserProfileSectionProps) => {
+const UserProfileSection = ({
+	movieGenres,
+	setMovieGenres,
+	genreIDs,
+	setGenreIDs,
+	showProfileSection,
+	setShowProfileSection,
+}: UserProfileSectionProps) => {
 	const { data: session } = useSession()
 
 	const handleAddGenreSelection = (genreID: number) => {
 		if (genreIDs?.includes(genreID)) {
 			let updatedGenreIDs = genreIDs?.filter(id => id !== genreID)
 			setGenreIDs && setGenreIDs(updatedGenreIDs)
+			setShowProfileSection && setShowProfileSection(!showProfileSection)
 		} else {
 			setGenreIDs && setGenreIDs(prev => [...prev, genreID])
+			setShowProfileSection && setShowProfileSection(!showProfileSection)
 		}
 		let updatedGenres = movieGenres?.map(genre => (genre.id === genreID ? { ...genre, selected: !genre.selected } : genre))
 		setMovieGenres(updatedGenres)
