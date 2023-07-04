@@ -23,7 +23,9 @@
                 
                 &__isActive
                     color: $color-white
-                    border-right: 4px solid $color-white
+                    
+                    +over-1280px()
+                        border-right: 4px solid $color-white
 
                 &__icon
                     margin-right: 1rem
