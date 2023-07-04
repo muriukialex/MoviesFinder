@@ -17,11 +17,10 @@ To view this application's figma designs, see [here](https://www.figma.com/file/
 
 ## Bonus Features
 
-In addition to the main features, the following bonus features have been implemented:
+In addition to the main features, the following features have also been implemented:
 
--   Pagination: Display multiple pages of search results, allowing users to navigate through the movie list.
--   Sorting: Sort search results by different criteria, such as rating or release date.
--   For Movie Ratings - Movies Ratings presented rely on the IMDb platform.
+-   Pagination
+-   Filter movies by genre
 
 ## How to Run Locally
 
@@ -35,8 +34,18 @@ To run the application locally, follow these steps:
   ```shell
     npm install
   ```
-3. Obtain an API Key from the The Movie Database (TMDB) website: [The Movie Database (TMDB) API](https://developer.themoviedb.org/reference/intro/getting-started)
-5. Create a `.env.local` file in the root directory and add your API key: `NEXT_PUBLIC_API_Key=<your API Key>`
+3. Obtain an API Key from the (TMDB) website: [The Movie Database (TMDB) API](https://developer.themoviedb.org/reference/intro/getting-started)
+5. Add your API keys
+  ```shell
+   #create a .env.local file for your API keys
+   touch .env.local
+
+   #copy contents of .env.local.example to .env.local
+   cp .env.local.example .env.local
+
+   # Remember to update your respective API keys
+  ```
+   
 6. Start the development server: `npm run dev`
 7. Open your web browser and visit: `http://localhost:3000`
 
@@ -44,14 +53,23 @@ To run the application locally, follow these steps:
 
 Here are some screenshots of the final web app:
 
-_Enter a movie title and click the search button to fetch results._
+_User Login._
+<img width="1433" alt="Screenshot 2023-07-04 at 20 38 51" src="https://github.com/muriukialex/MoviesFinder/assets/51236424/8366bdfa-8c5a-4b0f-a65e-932a0df7128b">
 
 
-_Filter movies by movie genre._
+_Landing Page._
+<img width="1436" alt="Screenshot 2023-07-04 at 20 39 21" src="https://github.com/muriukialex/MoviesFinder/assets/51236424/ed165cb9-ba8c-4711-bda5-3442f87bc47d">
+
+
+
+_About Movies Finder._
+
+<img width="1437" alt="Screenshot 2023-07-04 at 20 39 36" src="https://github.com/muriukialex/MoviesFinder/assets/51236424/909ff788-a025-465b-871a-a2864526a5dd">
+
 
 ## Demo
 
-You can also see a live demo of the web app [here](https://example.com/).
+You can also see a live demo of the web app [here](https://main--candid-llama-b0e6af.netlify.app/).
 
 ## Technologies Used
 
@@ -64,7 +82,7 @@ The following technologies were used to build this web app:
 -   [NextJS](https://nextjs.org/)
 -   [Auth.JS](https://authjs.dev/)
 -   [TMDb API](https://developer.themoviedb.org/)
--   Figma [Designs](https://www.figma.com/file/aqhVPaVGDh8nlsyX62zcNj/movies-finder?type=design&node-id=0%3A1&mode=design&t=uKYtvAsH9sdhwwRD-1)
+-   Figma
 
 ## Author
 
