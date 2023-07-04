@@ -1,5 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react'
 import { useRouter } from 'next/router'
+import { RxHamburgerMenu } from 'react-icons/rx'
+import { BiChevronLeftCircle } from 'react-icons/bi'
 import styles from './styles.module.sass'
 import MenuLogos from '../MenuLogos/MenuLogos'
 import Header from '../Header'
@@ -38,6 +40,10 @@ const HomeLayout = ({
 	const router = useRouter()
 	return (
 		<div className={styles.HomeLayoutContainer}>
+			<div className={styles.HomeLayoutContainer__Mobile}>
+				<RxHamburgerMenu size={24} className={styles.HomeLayoutContainer__Mobile__OpenMenuIcon} />
+				<BiChevronLeftCircle size={24} className={styles.HomeLayoutContainer__Mobile__OpenProfileIcon} />
+			</div>
 			<div className={styles.HomeLayoutContainer__menuLogos}>
 				<MenuLogos />
 			</div>

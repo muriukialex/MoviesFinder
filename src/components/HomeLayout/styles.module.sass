@@ -3,13 +3,39 @@
 .HomeLayoutContainer
     display: flex
 
+    &__Mobile
+        display: none
+
+        +under-1280px()
+            display: block
+
+        &__OpenMenuIcon
+            display: block
+            cursor: pointer
+            position: absolute
+            top: 1.5rem
+            left: 1rem
+            
+        &__OpenProfileIcon
+            display: block
+            cursor: pointer
+            position: absolute
+            top: 1.5rem
+            right: 1rem
+
     &__menuLogos
         flex: 0.25
+
+        +under-1280px()
+            display: none
     
     &__menuSection
         flex: 1.25
         background-color: $color-black
         min-height: 100vh
+
+        +under-1280px()
+            display: none
     
     &__mainDetails
         flex: 3
@@ -18,3 +44,6 @@
         flex: 1
         background-color: $color-black
         min-height: 100vh
+
+        +under-1280px()
+            display: none
