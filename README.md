@@ -1,3 +1,4 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c61fd680-85df-4fcc-8de7-52ce3c33e047/deploy-status?branch=main)](https://app.netlify.com/sites/main--candid-llama-b0e6af/deploys)
 # Movies Finder App 🎬
 
 This is a movie search web application that allows users to search for movies and view details about each movie. 
