@@ -4,6 +4,19 @@
 This is a movie search web application that allows users to search for movies and view details about each movie. 
 The app fetches data from the publicly available [TMDB API](https://developer.themoviedb.org/). Data fetched includes the movie's information, and movie ratings which are later presented in a visually appealing manner ✨.
 
+## Table of Contents
+
+- [Features](#features)
+- [Figma Designs](#figma-designs)
+- [How to Run Locally](#how-to-run-locally)
+- [Screenshots](#screenshots)
+- [Demo](#demo)
+- [Technologies Used](#technologies-used)
+- [Contributing](#contributing)
+- [Author](#author)
+- [License](#license)
+
+
 ## Features
 
 -   Search: Enter a movie title in the search input field and click the search button to fetch movie data from the specific API.
@@ -11,17 +24,11 @@ The app fetches data from the publicly available [TMDB API](https://developer.th
 -   Bookmarks: Bookmark your favorite movies to view later.
 -   Recently Viewed Movies: Users can also come back to recently viewed movies.
 -   Responsive Design: The web app is designed to look and function well on different screen sizes.
+-   Filter by genre
 
 ## Figma Designs
 
 To view this application's figma designs, see [here](https://www.figma.com/file/aqhVPaVGDh8nlsyX62zcNj/movies-finder?type=design&node-id=0%3A1&mode=design&t=uKYtvAsH9sdhwwRD-1)
-
-## Bonus Features
-
-In addition to the main features, the following features have also been implemented:
-
--   Pagination
--   Filter movies by genre
 
 ## How to Run Locally
 
@@ -38,17 +45,15 @@ To run the application locally, follow these steps:
 3. Obtain an API Key from the (TMDB) website: [The Movie Database (TMDB) API](https://developer.themoviedb.org/reference/intro/getting-started)
 5. Add your API keys
   ```shell
-   #create a .env.local file for your API keys
-   touch .env.local
-
-   #copy contents of .env.local.example to .env.local
    cp .env.local.example .env.local
 
    # Remember to update your respective API keys
   ```
    
-6. Start the development server: `npm run dev`
-7. Open your web browser and visit: `http://localhost:3000`
+6. Start the development server
+  ```shell
+   npm run dev
+  ```
 
 ## Screenshots
 
@@ -84,6 +89,16 @@ The following technologies were used to build this web app:
 -   [Auth.JS](https://authjs.dev/)
 -   [TMDb API](https://developer.themoviedb.org/)
 -   Figma
+
+## Contributing
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`
+3. Implement your feature or bug fix.
+4. Commit your changes: `git commit -m "Description of your changes"`
+5. Push to the branch: `git push origin feature-name`
+6. Submit a pull request detailing your changes.
 
 ## Author
 
