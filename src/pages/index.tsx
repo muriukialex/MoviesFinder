@@ -26,7 +26,6 @@ const Home = () => {
 // Export the `session` prop to use sessions with Server Side Rendering
 export async function getServerSideProps(context: GetServerSidePropsContext) {
 	const session = await getServerSession(context.req, context.res, authOptions)
-	console.log('user details: ', session)
 	if (!session) {
 		return { redirect: { destination: '/api/auth/signin' } }
 	}
