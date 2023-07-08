@@ -78,9 +78,11 @@
     &__LogoutContainer
         height: 1rem
         padding: 2rem
-        margin-top: 12rem
         display: flex
         align-items: center
+        
+        +over-1280px()
+            margin-top: 12rem
 
         &__text
             color: $color-light-grey

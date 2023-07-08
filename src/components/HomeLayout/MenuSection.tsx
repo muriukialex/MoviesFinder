@@ -3,7 +3,7 @@ import { signOut } from 'next-auth/react'
 import Link from 'next/link'
 import cx from 'classnames'
 import useActivePath from '@/hooks/useActivePath'
-import { PiWarningCircle } from 'react-icons/pi'
+import { LuInfo } from 'react-icons/lu'
 import { IoHome } from 'react-icons/io5'
 import { BiTimeFive } from 'react-icons/bi'
 import { FiBookmark } from 'react-icons/fi'
@@ -25,7 +25,7 @@ const MenuSection = () => {
 				href='/about'
 				className={cx(styles.MenuSection__about, { [styles.MenuSection__about__isActive]: useActivePath('/about') })}>
 				<span className={styles.MenuSection__about__icon}>
-					<PiWarningCircle size={24} />
+					<LuInfo size={24} />
 				</span>
 				<span className={styles.MenuSection__about__text}>About</span>
 			</Link>

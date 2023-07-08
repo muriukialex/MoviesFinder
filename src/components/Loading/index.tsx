@@ -19,7 +19,8 @@ const LoadingScreen = ({ variant, className, width = '', height = '' }: LoadingS
 }
 
 /*
-eg. Usage 
+Usage 
+eg. 
 
 <LoadingScreen variant='rect' width='30rem' height='30rem' />
 
