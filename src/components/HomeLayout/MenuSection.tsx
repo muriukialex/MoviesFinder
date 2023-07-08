@@ -31,7 +31,7 @@ const MenuSection = () => {
 			</Link>
 			<div className={styles.MenuSection__LogoutContainer}>
 				<span className={styles.MenuSection__LogoutContainer__icon}>
-					<TbLogout2 size={24} color='#3F3F3F' />
+					<TbLogout2 size={24} color='#848484' />
 				</span>
 				<span className={styles.MenuSection__LogoutContainer__text} onClick={handleLogout} title='Logout'>
 					Log out

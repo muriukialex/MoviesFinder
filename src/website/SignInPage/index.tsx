@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { signIn } from 'next-auth/react'
+import { useState } from 'react'
 import Header from '@/components/Header'
 import styles from './styles.module.sass'
 import LineDivider from '@/components/LineDivider/LineDivider'
@@ -7,13 +8,21 @@ import GoogleImageIcon from '@/assets/google-icon.png'
 import GithubImageIcon from '@/assets/github-mark.png'
 
 const SignInPage = () => {
+	const [loggedInState, setLoggedInState] = useState(false)
 	const handleSignUp = () => {
 		alert('Sign ups coming soon!')
 	}
+
+	const toggleLoggedInState = () => {
+		setLoggedInState(!loggedInState)
+	}
+
 	const handleGoogleLogIn = () => {
+		toggleLoggedInState()
 		return signIn('google')
 	}
 	const handleGithubLogin = () => {
+		toggleLoggedInState()
 		return signIn('github')
 	}
 	return (
@@ -23,26 +32,28 @@ const SignInPage = () => {
 					<Header />
 					<div className={styles.SignInContainer__main__details__content}>
 						<h1>Log In</h1>
-						<div
+						<button
 							className={styles.SignInContainer__main__details__content__providerContainer}
-							onClick={handleGoogleLogIn}>
+							onClick={handleGoogleLogIn}
+							disabled={loggedInState}>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GoogleImageIcon} width={32} height={32} alt='Google' />
 							</span>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__text}>
 								Log In With Google
 							</span>
-						</div>
-						<div
+						</button>
+						<button
 							className={styles.SignInContainer__main__details__content__providerContainer}
-							onClick={handleGithubLogin}>
+							onClick={handleGithubLogin}
+							disabled={loggedInState}>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GithubImageIcon} width={32} height={32} alt='Github' />
 							</span>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__text}>
 								Log In With Github
 							</span>
-						</div>
+						</button>
 						<div className={styles.SignInContainer__main__details__content__divider}>
 							<LineDivider dividerText='OR' />
 						</div>
