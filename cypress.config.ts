@@ -6,7 +6,7 @@ dotenv.config()
 
 export default defineConfig({
 	e2e: {
-		baseUrl: 'http://localhost:3000',
+		baseUrl: process.env.NEXTAUTH_URL,
 	},
 	env: {
 		googleRefreshToken: process.env.GOOGLE_REFRESH_TOKEN,
