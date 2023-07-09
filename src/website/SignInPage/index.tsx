@@ -35,7 +35,8 @@ const SignInPage = () => {
 						<button
 							className={styles.SignInContainer__main__details__content__providerContainer}
 							onClick={handleGoogleLogIn}
-							disabled={loggedInState}>
+							disabled={loggedInState}
+							data-cy='google-sign-in-btn'>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GoogleImageIcon} width={32} height={32} alt='Google' />
 							</span>
@@ -46,7 +47,8 @@ const SignInPage = () => {
 						<button
 							className={styles.SignInContainer__main__details__content__providerContainer}
 							onClick={handleGithubLogin}
-							disabled={loggedInState}>
+							disabled={loggedInState}
+							data-cy='github-sign-in-btn'>
 							<span className={styles.SignInContainer__main__details__content__providerContainer__logo}>
 								<Image src={GithubImageIcon} width={32} height={32} alt='Github' />
 							</span>
@@ -62,7 +64,8 @@ const SignInPage = () => {
 							Don’t have an account?
 							<span
 								className={styles.SignInContainer__main__details__content__dontHaveAccount__action}
-								onClick={handleSignUp}>
+								onClick={handleSignUp}
+								data-cy='dont-have-account-action'>
 								Sign Up
 							</span>
 						</div>
