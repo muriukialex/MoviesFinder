@@ -6,7 +6,7 @@ const LoadingMoviesScreen = () => {
 		<div className={styles.LoadingMoviesScreen__Container}>
 			{new Array(10).fill(0).map((_, key) => (
 				<div key={key}>
-					<LoadingScreen width='300px' height='300px' variant='rect' />
+					<LoadingScreen width='310px' height='300px' variant='rect' />
 				</div>
 			))}
 		</div>
