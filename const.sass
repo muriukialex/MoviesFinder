@@ -9,6 +9,7 @@ $color-grey-black: #333333
 $color-light-grey: #3F3F3F
 $color-medium-grey: #565656
 $color-yellow: #FFD233
+$color-faded-yellow: #E3C042
 $color-green: #29BE1C
 $color-dark-red: #B1060F
 $color-light-red: #FF0000
@@ -38,6 +39,10 @@ $fallback-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida S
 
 =over-1000px()
 	@media screen and (min-width: 1000px)
+		@content
+
+=under-1000px()
+	@media screen and (max-width: 1000px)
 		@content
 
 =over-1280px()
