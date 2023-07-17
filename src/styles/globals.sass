@@ -15,18 +15,21 @@ body
     background: $color-dark-grey
     color: $color-white
     line-height: 1.5em
-
-
-body
     
-
 a
     color: inherit
     text-decoration: none
 
-input:focus
-    border: none
-    outline: none
+input
+    font-family: $fallback-font
+    font-size: 1.2rem
+
+    &:focus
+        border: none
+        outline: none
+
+    &::placeholder
+        font-size: 1rem
 
 button
     font-family: $fallback-font

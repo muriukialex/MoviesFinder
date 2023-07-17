@@ -1,6 +1,7 @@
-import Image from 'next/image'
-import { signIn } from 'next-auth/react'
 import { useState } from 'react'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { signIn } from 'next-auth/react'
 import Header from '@/components/Header'
 import styles from './styles.module.sass'
 import LineDivider from '@/components/LineDivider/LineDivider'
@@ -8,9 +9,10 @@ import GoogleImageIcon from '@/assets/google-icon.png'
 import GithubImageIcon from '@/assets/github-mark.png'
 
 const SignInPage = () => {
+	const router = useRouter()
 	const [loggedInState, setLoggedInState] = useState(false)
 	const handleSignUp = () => {
-		alert('Sign ups coming soon!')
+		router.push('/auth/signup')
 	}
 
 	const toggleLoggedInState = () => {

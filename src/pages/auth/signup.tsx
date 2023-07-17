@@ -1,21 +1,21 @@
 import Head from 'next/head'
-import SignInPage from '@/website/Authentication/SignInPage'
+import SignUpPage from '@/website/Authentication/SignUpPage'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
 // types
 import type { GetServerSidePropsContext } from 'next'
 
-const SignIn = () => {
+const SignUp = () => {
 	return (
 		<>
 			<Head>
-				<title>Sign In | Movies Finder 🎬</title>
-				<meta name='description' content='SignIn to view your favorite movies in the Movies Finder App' />
+				<title>Sign Up | Movies Finder 🎬</title>
+				<meta name='description' content='SignUp to view your favorite movies in the Movies Finder App' />
 				<meta name='viewport' content='width=device-width, initial-scale=1' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
-			<SignInPage />
+			<SignUpPage />
 		</>
 	)
 }
@@ -33,4 +33,4 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 	}
 }
 
-export default SignIn
+export default SignUp
